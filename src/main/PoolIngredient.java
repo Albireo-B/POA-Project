@@ -3,7 +3,9 @@ package main;
 import error.NoIngredientException;
 
 import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class PoolIngredient {
 
@@ -12,12 +14,14 @@ public class PoolIngredient {
 
 
     private PoolIngredient(){
+        ingredients = new HashMap<Ingredient, Integer>();
         ingredients.put(new Ingredient("Sucre"), 500);
         ingredients.put(new Ingredient("Gélatine"), 500);
         ingredients.put(new Ingredient("Pomme"), 300);
         ingredients.put(new Ingredient("Poire"), 300);
         ingredients.put(new Ingredient("Banane"), 300);
         ingredients.put(new Ingredient("Colorant"), 300);
+        ingredients.put(new Ingredient("Sucre acidulé"), 300);
     }
 
     public static PoolIngredient getInstance()
@@ -29,6 +33,7 @@ public class PoolIngredient {
     }
 
     public boolean IngredientDisponible(Ingredient ingredient){
+        //DOIT ÊTRE FIX !!!
         return ingredients.containsKey(ingredient);
     }
 
