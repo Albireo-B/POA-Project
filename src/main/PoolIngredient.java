@@ -33,7 +33,6 @@ public class PoolIngredient {
     }
 
     public boolean IngredientDisponible(Ingredient ingredient){
-        //DOIT ÊTRE FIX !!!
         return ingredients.containsKey(ingredient);
     }
 
