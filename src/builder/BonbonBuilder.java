@@ -10,7 +10,8 @@ import java.util.List;
 
 public abstract class BonbonBuilder {
 
-    protected Bonbon resultat = null;
+    protected Bonbon bonbonABuild = null;
+    protected String nomBonBon = null;
 
     public BonbonBuilder Melanger(){
         System.out.println("Mélange la pâte");
@@ -18,9 +19,8 @@ public abstract class BonbonBuilder {
     }
 
     public BonbonBuilder AjouterIngredient(AbstractMap.SimpleEntry<Ingredient,Integer> ingredient){
-        if(resultat==null){
-            resultat = new Bonbon("Jujube");
-        }
+
+        bonbonABuild = new Bonbon(this.nomBonBon);
 
         try{
             PoolIngredient.getInstance().PrendreIngredient(ingredient.getKey(), ingredient.getValue());
@@ -30,7 +30,7 @@ public abstract class BonbonBuilder {
             return this;
         }
 
-        resultat.AjouterIngredient(ingredient.getKey());
+        bonbonABuild.AjouterIngredient(ingredient.getKey());
         return this;
     }
 
@@ -39,7 +39,7 @@ public abstract class BonbonBuilder {
     }
 
     public Bonbon Build(){
-        return resultat;
+        return bonbonABuild;
     }
 
     //PLUS DE METHODES EST NECESSAIRE JE PENSE

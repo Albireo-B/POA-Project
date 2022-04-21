@@ -10,6 +10,10 @@ import java.util.List;
 
 public class JujubeBuilder extends BonbonBuilder{
 
+    public JujubeBuilder(){
+        nomBonBon = "Jujube";
+    }
+
     @Override
     public BonbonBuilder Peser() {
         System.out.println("Cette préparation pèse 20g");
