@@ -4,6 +4,7 @@ import error.NoIngredientException;
 import main.Bonbon;
 import main.Ingredient;
 import main.PoolIngredient;
+import recette.Recette;
 
 import java.util.AbstractMap;
 import java.util.List;
@@ -12,6 +13,7 @@ public abstract class BonbonBuilder {
 
     protected Bonbon bonbonABuild = null;
     protected String nomBonBon = null;
+    protected Recette recetteBonbon = null;
 
     public BonbonBuilder Melanger(){
         System.out.println("Mélange la pâte");

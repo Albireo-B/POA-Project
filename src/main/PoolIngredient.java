@@ -2,10 +2,8 @@ package main;
 
 import error.NoIngredientException;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.security.KeyPair;
+import java.util.*;
 
 public class PoolIngredient {
 
@@ -36,7 +34,7 @@ public class PoolIngredient {
         return ingredients.containsKey(ingredient);
     }
 
-    public void PrendreIngredient(Ingredient ingredient, Integer quantite) throws NoIngredientException {
+    public Map.Entry<Ingredient,Integer> PrendreIngredient(Ingredient ingredient, Integer quantite) throws NoIngredientException {
         if(!IngredientDisponible(ingredient)){ throw new NoIngredientException("L'ingrédient n'est pas disponible"); }
         int quantiteReserve = ingredients.get(ingredient);
         if(quantiteReserve < quantite){
@@ -46,5 +44,15 @@ public class PoolIngredient {
         }
 
         ingredients.compute(ingredient, (key, val) -> val - quantite);
+        return Map.entry(ingredient,quantite);
+    }
+
+    public Ingredient GetIngredient(String ingredientClass){
+        for (Ingredient ingredient : ingredients.keySet()){
+            if (ingredient.GetNom().equals(ingredientClass)){
+                return ingredient;
+            }
+        }
+        return null;
     }
 }
