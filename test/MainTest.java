@@ -5,6 +5,10 @@ public class MainTest {
         BonbonBuilderTest bonbonBuilderTest = new BonbonBuilderTest();
         bonbonBuilderTest.TestJubule();
         bonbonBuilderTest.TestReglisse();
+
+        RecetteTest recetteTest = new RecetteTest();
+        recetteTest.RecetteReglisse();
+        recetteTest.RecetteJujube();
     }
 
 }

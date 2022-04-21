@@ -17,10 +17,11 @@ public class PoolIngredient {
         ingredients = new HashMap<Ingredient, Integer>();
         ingredients.put(new Ingredient("Sucre"), 500);
         ingredients.put(new Ingredient("Gélatine"), 500);
-        ingredients.put(new Ingredient("Pomme"), 300);
-        ingredients.put(new Ingredient("Poire"), 300);
-        ingredients.put(new Ingredient("Banane"), 300);
-        ingredients.put(new Ingredient("Colorant"), 300);
+        ingredients.put(new Ingredient("Pomme"), 200);
+        ingredients.put(new Ingredient("Poire"), 200);
+        ingredients.put(new Ingredient("Banane"), 200);
+        ingredients.put(new Ingredient("Anis"), 200);
+        ingredients.put(new Ingredient("Colorant"), 200);
         ingredients.put(new Ingredient("Sucre acidulé"), 300);
     }
 

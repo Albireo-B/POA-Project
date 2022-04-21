@@ -14,6 +14,7 @@ public class Bonbon {
     }
 
     public void AjouterIngredient(Ingredient ingredient){
+
         ingredients.add(ingredient);
     }
 

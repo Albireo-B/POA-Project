@@ -1,16 +1,12 @@
 package builder;
 
 import main.Bonbon;
-import main.Ingredient;
-
-import java.util.AbstractMap;
-import java.util.List;
 
 public class ReglisseBuilder extends BonbonBuilder{
 
 
     public ReglisseBuilder(){
-        nomBonBon = "Reglisse";
+        bonbonABuild = new Bonbon("Reglisse");
     }
 
     @Override

@@ -1,17 +1,12 @@
 package builder;
 
-import error.NoIngredientException;
 import main.Bonbon;
-import main.Ingredient;
-import main.PoolIngredient;
-
-import java.util.AbstractMap;
-import java.util.List;
 
 public class JujubeBuilder extends BonbonBuilder{
 
     public JujubeBuilder(){
-        nomBonBon = "Jujube";
+
+        bonbonABuild = new Bonbon("Jujube");
     }
 
     @Override
