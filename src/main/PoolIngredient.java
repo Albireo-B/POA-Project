@@ -1,11 +1,9 @@
 package main;
 
 import error.NoIngredientException;
+import error.PoolEmptyException;
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PoolIngredient {
 
@@ -47,5 +45,29 @@ public class PoolIngredient {
         }
 
         ingredients.compute(ingredient, (key, val) -> val - quantite);
+    }
+
+    public Ingredient PrendreIngredientAuHasard() throws PoolEmptyException {
+        ArrayList<Ingredient> ingredientsAvailable = new ArrayList<>();
+        ingredients.forEach((key, val)->{
+            if(val>0){
+                ingredientsAvailable.add(key);
+            }
+        });
+        if(ingredientsAvailable.size()==0){
+            throw new PoolEmptyException("Il n'y a plus d'ingrédient disponible");
+        }
+
+        int indexRandomIngredient = (int)(Math.floor(Math.random())*10) % ingredientsAvailable.size();
+        Ingredient randomIngredient = ingredientsAvailable.get(indexRandomIngredient);
+        return randomIngredient;
+    }
+
+    private ArrayList<String> GetListIngredients(){
+        ArrayList<String> listIngredients = new ArrayList<>();
+        ingredients.forEach((key, val)->{
+            listIngredients.add(key.GetNom());
+        });
+        return listIngredients;
     }
 }
