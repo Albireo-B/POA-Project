@@ -1,11 +1,6 @@
 package main;
 
-import builder.BonbonBuilder;
-import builder.BonbonBuilderGuillaume;
-import builder.JujubeBuilder;
-import builder.ReglisseBuilder;
-
-public class RoiDesBonbons {
+class RoiDesBonbons {
 
     private static RoiDesBonbons single_instance = null;
 
@@ -18,9 +13,6 @@ public class RoiDesBonbons {
     }
 
     public Bonbon SouhaitBonbon(String nomBonbon){
-
-        BonbonBuilderGuillaume builder = new BonbonBuilderGuillaume(nomBonbon);
-        Bonbon bonbon = builder.Build();
-        return bonbon;
+        return null;
     }
 }

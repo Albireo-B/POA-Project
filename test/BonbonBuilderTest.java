@@ -12,8 +12,9 @@ public class BonbonBuilderTest {
 
     public void TestJubule(){
         JujubeBuilder builder = new JujubeBuilder();
+        builder.AjouterIngredient(new AbstractMap.SimpleEntry<Ingredient, Integer>(new Ingredient("Sucre"), 20));
         Bonbon item = builder.Build();
-        System.out.println(item.toString());
+        System.out.println(item);
     }
 
     public void TestReglisse(){
