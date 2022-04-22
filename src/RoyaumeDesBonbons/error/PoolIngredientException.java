@@ -1,4 +1,4 @@
-package error;
+package RoyaumeDesBonbons.error;
 
 public class PoolIngredientException extends Exception {
     public PoolIngredientException(String message) {

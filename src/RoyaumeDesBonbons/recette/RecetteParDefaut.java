@@ -1,14 +1,14 @@
-package recette;
+package RoyaumeDesBonbons.recette;
 
-import bonbon.Ingredient;
-import error.PoolIngredientException;
-import bonbon.PoolIngredient;
-import operation.OperationBrasser;
-import operation.OperationEmballer;
+import RoyaumeDesBonbons.bonbon.Ingredient;
+import RoyaumeDesBonbons.error.PoolIngredientException;
+import RoyaumeDesBonbons.bonbon.PoolIngredient;
+import RoyaumeDesBonbons.operation.OperationBrasser;
+import RoyaumeDesBonbons.operation.OperationEmballer;
 
 import java.util.Map;
 
-public class RecetteParDefaut extends Recette {
+public final class RecetteParDefaut extends Recette {
 
     public RecetteParDefaut() throws PoolIngredientException {
         super();

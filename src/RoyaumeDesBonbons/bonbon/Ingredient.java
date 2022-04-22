@@ -1,15 +1,19 @@
-package bonbon;
+package RoyaumeDesBonbons.bonbon;
 
-public class Ingredient {
+public final class Ingredient {
 
     private String nom;
 
     public Ingredient(String newNom) {
-        nom = newNom;
+        setNom(newNom);
     }
 
     public String GetNom() {
         return nom;
+    }
+
+    private void setNom(String nom) {
+        this.nom = nom;
     }
 
     @Override

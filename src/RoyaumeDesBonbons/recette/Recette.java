@@ -1,8 +1,7 @@
-package recette;
+package RoyaumeDesBonbons.recette;
 
-import bonbon.Ingredient;
-import error.PoolIngredientException;
-import operation.Operation;
+import RoyaumeDesBonbons.bonbon.Ingredient;
+import RoyaumeDesBonbons.operation.Operation;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -10,25 +9,21 @@ import java.util.HashMap;
 
 public abstract class Recette {
 
-    public AbstractMap<Ingredient, Integer> ingredients;
-    public ArrayList<Operation> operations;
+    protected AbstractMap<Ingredient, Integer> ingredients;
+    protected ArrayList<Operation> operations;
 
 
-    public ArrayList<Operation> GetOperations() {
-        return operations;
-    }
-
-    ;
-
-    public AbstractMap<Ingredient, Integer> GetIngredients() {
-        return ingredients;
-    }
-
-    ;
-
-    Recette() throws PoolIngredientException {
+    Recette() {
         ingredients = new HashMap<Ingredient, Integer>();
         operations = new ArrayList<Operation>();
+    }
+
+    public AbstractMap<Ingredient, Integer> getIngredients() {
+        return new HashMap<>(ingredients);
+    }
+
+    public  ArrayList<Operation> getOperations() {
+        return new ArrayList<>(operations);
     }
 
     @Override

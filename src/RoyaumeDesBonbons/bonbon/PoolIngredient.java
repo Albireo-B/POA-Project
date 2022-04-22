@@ -1,27 +1,27 @@
-package bonbon;
+package RoyaumeDesBonbons.bonbon;
 
-import error.NoIngredientException;
-import error.PoolEmptyException;
-import error.PoolIngredientException;
+import RoyaumeDesBonbons.error.NoIngredientException;
+import RoyaumeDesBonbons.error.PoolEmptyException;
+import RoyaumeDesBonbons.error.PoolIngredientException;
 
 import java.util.*;
 
-public class PoolIngredient {
+public final class PoolIngredient {
 
     private static PoolIngredient instance = null;
-    private AbstractMap<Ingredient, Integer> ingredients;
+    private final AbstractMap<Ingredient, Integer> ingredients;
 
 
     private PoolIngredient() {
         ingredients = new HashMap<Ingredient, Integer>();
-        ingredients.put(new Ingredient("Sucre"), 500);
-        ingredients.put(new Ingredient("Gélatine"), 500);
-        ingredients.put(new Ingredient("Pomme"), 300);
-        ingredients.put(new Ingredient("Poire"), 300);
-        ingredients.put(new Ingredient("Banane"), 300);
-        ingredients.put(new Ingredient("Anis"), 300);
-        ingredients.put(new Ingredient("Colorant"), 300);
-        ingredients.put(new Ingredient("Sucre acidulé"), 300);
+        ajouterIngredient(new Ingredient("Sucre"), 500);
+        ajouterIngredient(new Ingredient("Gélatine"), 500);
+        ajouterIngredient(new Ingredient("Pomme"), 300);
+        ajouterIngredient(new Ingredient("Poire"), 300);
+        ajouterIngredient(new Ingredient("Banane"), 300);
+        ajouterIngredient(new Ingredient("Anis"), 300);
+        ajouterIngredient(new Ingredient("Colorant"), 300);
+        ajouterIngredient(new Ingredient("Sucre acidulé"), 300);
     }
 
     public static PoolIngredient getInstance() {
@@ -31,8 +31,21 @@ public class PoolIngredient {
         return instance;
     }
 
-    public boolean IngredientDisponible(Ingredient ingredient) {
+    private void ajouterIngredient(Ingredient ingredient, int quantite) {
+        ingredients.put(ingredient, quantite);
+    }
+
+    private boolean IngredientDisponible(Ingredient ingredient) {
         return ingredients.containsKey(ingredient);
+    }
+
+    public boolean ingredientQuantiteDisponible(Ingredient ingredient, int quantite) {
+        if(ingredients.containsKey(ingredient)){
+            if(ingredients.get(ingredient) >= quantite) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Map.Entry<Ingredient, Integer> PrendreIngredient(Ingredient ingredient, Integer quantite) throws NoIngredientException {

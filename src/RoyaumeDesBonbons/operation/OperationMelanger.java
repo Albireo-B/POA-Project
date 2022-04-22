@@ -1,10 +1,10 @@
-package operation;
+package RoyaumeDesBonbons.operation;
 
-import bonbon.Ingredient;
+import RoyaumeDesBonbons.bonbon.Ingredient;
 
 import java.util.ArrayList;
 
-public class OperationMelanger extends OperationComposee {
+public final class OperationMelanger extends OperationComposee {
 
 
     public OperationMelanger(ArrayList<Ingredient> listeIngredients) {

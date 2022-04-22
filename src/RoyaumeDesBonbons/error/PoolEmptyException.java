@@ -1,6 +1,6 @@
-package error;
+package RoyaumeDesBonbons.error;
 
-public class PoolEmptyException extends PoolIngredientException {
+public final class PoolEmptyException extends PoolIngredientException {
 
     public PoolEmptyException(String message) {
         super("PoolEmptyException : " + message);

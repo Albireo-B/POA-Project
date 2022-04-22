@@ -1,13 +1,13 @@
-package personnages;
+package RoyaumeDesBonbons.personnages;
 
-import bonbon.Bonbon;
-import bonbon.Ingredient;
-import error.AllergieException;
+import RoyaumeDesBonbons.error.AllergieException;
+import RoyaumeDesBonbons.bonbon.Bonbon;
+import RoyaumeDesBonbons.bonbon.Ingredient;
 
 import java.util.Collections;
 import java.util.List;
 
-public final class Mere {
+final class Mere {
     Bonbon passerCommandePourEnfant(String nomBonbon, List<Ingredient> allergiesEnfant) throws AllergieException {
         Bonbon bonbon = RoiDesBonbons.getInstance().SouhaitBonbon(nomBonbon);
         List<Ingredient> ingredientsBonbon = bonbon.getIngredients();
@@ -16,7 +16,7 @@ public final class Mere {
         if (Collections.disjoint(ingredientsBonbon, allergiesEnfant)) {
             return bonbon;
         } else {
-            throw new AllergieException("l'enfant ne peut pas manger " + bonbon.toString() + " car il y est allergique.");
+            throw new AllergieException("l'enfant ne peut pas manger " + bonbon + " car il y est allergique.");
         }
     }
 

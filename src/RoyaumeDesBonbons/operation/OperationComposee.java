@@ -1,6 +1,6 @@
-package operation;
+package RoyaumeDesBonbons.operation;
 
-import bonbon.Ingredient;
+import RoyaumeDesBonbons.bonbon.Ingredient;
 
 import java.util.ArrayList;
 

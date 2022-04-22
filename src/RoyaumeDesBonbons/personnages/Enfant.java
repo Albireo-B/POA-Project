@@ -1,7 +1,7 @@
-package personnages;
+package RoyaumeDesBonbons.personnages;
 
-import bonbon.Ingredient;
-import error.AllergieException;
+import RoyaumeDesBonbons.error.AllergieException;
+import RoyaumeDesBonbons.bonbon.Ingredient;
 
 import java.util.ArrayList;
 import java.util.Collections;

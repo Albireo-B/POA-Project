@@ -1,11 +1,11 @@
-import bonbon.Bonbon;
-import personnages.RoiDesBonbons;
+import RoyaumeDesBonbons.bonbon.Bonbon;
 
 public class MainTest {
 
     public static void main(String[] args){
 
-        RoiDesBonbons.getInstance().SouhaitBonbon("Jujube");
+        // On doit maintenant passer par l<enfant pour faire les souhaits
+        /*RoiDesBonbons.getInstance().SouhaitBonbon("Jujube");
         RoiDesBonbons.getInstance().SouhaitBonbon("Reglisse");
         RoiDesBonbons.getInstance().SouhaitBonbon("glbskf");
 
@@ -13,7 +13,7 @@ public class MainTest {
             System.out.println("\n====UN BONBON EST DEMANDE====");
             Bonbon result = RoiDesBonbons.getInstance().SouhaitBonbon("glbskf");
             if(result==null){ break; }
-        }
+        }*/
 
     }
 

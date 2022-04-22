@@ -1,17 +1,17 @@
-package bonbon;
+package RoyaumeDesBonbons.bonbon;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bonbon {
+public final class Bonbon {
 
     private String nom;
-    private ArrayList<Ingredient> ingredients;
+    private final ArrayList<Ingredient> ingredients;
 
     public Bonbon(String nomBonbon) {
 
-        nom = nomBonbon;
-        ingredients = new ArrayList<Ingredient>();
+        setNom(nomBonbon);
+        ingredients = new ArrayList<>();
     }
 
     public void AjouterIngredient(Ingredient ingredient) {
@@ -20,6 +20,10 @@ public class Bonbon {
 
     public List<Ingredient> getIngredients() {
         return new ArrayList<>(ingredients);
+    }
+
+    private void setNom(String nom) {
+        this.nom = nom;
     }
 
     @Override

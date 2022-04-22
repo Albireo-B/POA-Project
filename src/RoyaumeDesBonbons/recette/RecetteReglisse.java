@@ -1,13 +1,13 @@
-package recette;
+package RoyaumeDesBonbons.recette;
 
-import error.NoIngredientException;
-import error.PoolIngredientException;
-import bonbon.PoolIngredient;
-import operation.OperationBrasser;
-import operation.OperationEmballer;
-import operation.OperationPeser;
+import RoyaumeDesBonbons.error.NoIngredientException;
+import RoyaumeDesBonbons.error.PoolIngredientException;
+import RoyaumeDesBonbons.bonbon.PoolIngredient;
+import RoyaumeDesBonbons.operation.OperationBrasser;
+import RoyaumeDesBonbons.operation.OperationEmballer;
+import RoyaumeDesBonbons.operation.OperationPeser;
 
-public class RecetteReglisse extends Recette {
+public final class RecetteReglisse extends Recette {
 
     public RecetteReglisse() throws PoolIngredientException {
         super();

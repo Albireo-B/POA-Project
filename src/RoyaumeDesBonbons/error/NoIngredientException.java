@@ -1,6 +1,6 @@
-package error;
+package RoyaumeDesBonbons.error;
 
-public class NoIngredientException extends PoolIngredientException {
+public final class NoIngredientException extends PoolIngredientException {
 
     public NoIngredientException(String message) {
         super("NoIngredientException : " + message);
