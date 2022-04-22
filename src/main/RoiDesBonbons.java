@@ -18,6 +18,10 @@ public class RoiDesBonbons {
     }
 
     public Bonbon SouhaitBonbon(String nomBonbon){
+        if(PoolIngredient.getInstance().IsEmpty(10)){
+            System.out.println("Il n'y a plus assez d'ingrédients !");
+            return null;
+        }
 
         BonbonBuilderGuillaume builder = new BonbonBuilderGuillaume(nomBonbon);
         Bonbon bonbon = builder.Build();

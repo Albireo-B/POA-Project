@@ -1,3 +1,4 @@
+import main.Bonbon;
 import main.RoiDesBonbons;
 
 public class MainTest {
@@ -9,7 +10,9 @@ public class MainTest {
         RoiDesBonbons.getInstance().SouhaitBonbon("glbskf");
 
         for(int i = 0; i<100; i++){
-            RoiDesBonbons.getInstance().SouhaitBonbon("glbskf");
+            System.out.println("\n====UN BONBON EST DEMANDE====");
+            Bonbon result = RoiDesBonbons.getInstance().SouhaitBonbon("glbskf");
+            if(result==null){ break; }
         }
 
     }

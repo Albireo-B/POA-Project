@@ -66,6 +66,7 @@ public class PoolIngredient {
                 ingredientsAvailable.add(key);
             }
         });
+
         if(ingredientsAvailable.size()==0){
             throw new PoolEmptyException("Il n'y a plus d'ingrédient disponible");
         }
@@ -76,5 +77,15 @@ public class PoolIngredient {
         PrendreIngredient(randomIngredient, value);
 
         return Map.entry(randomIngredient,value);
+    }
+
+    public boolean IsEmpty(int deltaQuantity){
+        ArrayList<Ingredient> ingredientsAvailable = new ArrayList<>();
+        ingredients.forEach((key, val)->{
+            if(val>=deltaQuantity){
+                ingredientsAvailable.add(key);
+            }
+        });
+        return !(ingredientsAvailable.size()>2);
     }
 }
