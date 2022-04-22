@@ -1,12 +1,14 @@
-package main;
+package bonbon;
 
 public class Ingredient {
 
     private String nom;
 
-    public Ingredient(String newNom){ nom = newNom; }
+    public Ingredient(String newNom) {
+        nom = newNom;
+    }
 
-    public String GetNom(){
+    public String GetNom() {
         return nom;
     }
 
@@ -25,7 +27,7 @@ public class Ingredient {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.GetNom();
     }
 

@@ -1,20 +1,10 @@
 package builder;
 
-import error.NoIngredientException;
-import error.PoolEmptyException;
 import error.PoolIngredientException;
-import main.Bonbon;
-import main.Ingredient;
-import main.PoolIngredient;
-import operation.Operation;
+import bonbon.Bonbon;
 import recette.Recette;
 import recette.RecetteJujube;
 import recette.RecetteParDefaut;
-import recette.RecetteReglisse;
-
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BonbonBuilderGuillaume {
 
@@ -22,27 +12,27 @@ public class BonbonBuilderGuillaume {
     protected String nomBonBon = null;
     protected Recette recetteBonbon = null;
 
-    public BonbonBuilderGuillaume(String nomBonbon){
+    public BonbonBuilderGuillaume(String nomBonbon) {
         this.nomBonBon = nomBonbon;
         System.out.println(RecetteJujube.class.getName());
         try {
-            Class bonbonRecetteClass = Class.forName("recette.Recette"+nomBonbon);
+            Class bonbonRecetteClass = Class.forName("recette.Recette" + nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
             return;
         } catch (Exception e) {
             //e.printStackTrace();
             //Recette parar défaut quand on ne trouve pas la recette du bonbon
             System.out.println(e);
-            try{
+            try {
                 recetteBonbon = new RecetteParDefaut();
-            } catch(PoolIngredientException exception2){
+            } catch (PoolIngredientException exception2) {
                 exception2.printStackTrace();
             }
         }
     }
 
-    public Bonbon Build(){
-        if(recetteBonbon==null){
+    public Bonbon Build() {
+        if (recetteBonbon == null) {
             System.out.print("Recette introuvable !");
             return null;
         }
@@ -53,11 +43,11 @@ public class BonbonBuilderGuillaume {
             operation.AppliquerOperation();
         });
 
-        recetteBonbon.ingredients.forEach((ingredient,integer) -> {
+        recetteBonbon.ingredients.forEach((ingredient, integer) -> {
             bonbonABuild.AjouterIngredient(ingredient);
         });
 
-        AfficherJournal(this.nomBonBon,recetteBonbon);
+        AfficherJournal(this.nomBonBon, recetteBonbon);
         return bonbonABuild;
     }
 

@@ -1,8 +1,6 @@
 package operation;
 
-import main.Ingredient;
-
-public class OperationBrasser extends OperationSimple{
+public class OperationBrasser extends OperationSimple {
 
 
     public OperationBrasser() {

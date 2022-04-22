@@ -1,22 +1,20 @@
 package recette;
 
-import error.NoIngredientException;
+import bonbon.Ingredient;
 import error.PoolIngredientException;
-import main.Ingredient;
-import main.PoolIngredient;
+import bonbon.PoolIngredient;
 import operation.OperationBrasser;
 import operation.OperationEmballer;
-import operation.OperationPeser;
 
 import java.util.Map;
 
-public class RecetteParDefaut  extends Recette {
+public class RecetteParDefaut extends Recette {
 
-    public RecetteParDefaut() throws PoolIngredientException{
+    public RecetteParDefaut() throws PoolIngredientException {
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
-        for(int i = 0; i<3; i++){
+        for (int i = 0; i < 3; i++) {
             Map.Entry<Ingredient, Integer> ingredientQuantity = poolIngredient.PrendreIngredientAuHasard(10);
             ingredients.put(
                     ingredientQuantity.getKey(),

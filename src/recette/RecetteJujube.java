@@ -1,8 +1,7 @@
 package recette;
 
-import error.NoIngredientException;
 import error.PoolIngredientException;
-import main.PoolIngredient;
+import bonbon.PoolIngredient;
 import operation.OperationBrasser;
 import operation.OperationEmballer;
 import operation.OperationPeser;
@@ -14,6 +13,8 @@ public class RecetteJujube extends Recette {
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
+
+        // Et si il y a assez du premier ingrédient mais pas du deuxième, on va quand même utiliser le premier ingrédient sans avoir fait le bonbon
 
         ingredients.put(
                 poolIngredient.PrendreIngredient(

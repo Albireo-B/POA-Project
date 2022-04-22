@@ -1,5 +1,5 @@
-import main.Bonbon;
-import main.RoiDesBonbons;
+import bonbon.Bonbon;
+import personnages.RoiDesBonbons;
 
 public class MainTest {
 

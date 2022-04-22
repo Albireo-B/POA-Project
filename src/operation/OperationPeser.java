@@ -1,8 +1,8 @@
 package operation;
 
-import main.Ingredient;
+import bonbon.Ingredient;
 
-public class OperationPeser extends OperationComposee{
+public class OperationPeser extends OperationComposee {
 
     public OperationPeser(Ingredient ingredient) {
         super(ingredient);

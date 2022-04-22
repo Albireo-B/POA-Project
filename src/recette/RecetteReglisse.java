@@ -2,18 +2,18 @@ package recette;
 
 import error.NoIngredientException;
 import error.PoolIngredientException;
-import main.PoolIngredient;
+import bonbon.PoolIngredient;
 import operation.OperationBrasser;
 import operation.OperationEmballer;
 import operation.OperationPeser;
 
-public class RecetteReglisse  extends Recette {
+public class RecetteReglisse extends Recette {
 
     public RecetteReglisse() throws PoolIngredientException {
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
-        try{
+        try {
             ingredients.put(
                     poolIngredient.PrendreIngredient(
                             poolIngredient.GetIngredient("Sucre"), 10
@@ -32,8 +32,7 @@ public class RecetteReglisse  extends Recette {
                     ).getKey(),
                     10);
 
-        }
-        catch(NoIngredientException exception){
+        } catch (NoIngredientException exception) {
             System.out.println(exception);
         }
         //On fait la liste des opérations avec leurs ingrédients (si oui) et on les éxecutes

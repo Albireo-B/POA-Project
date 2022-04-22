@@ -1,21 +1,22 @@
-package main;
+package personnages;
 
+import bonbon.PoolIngredient;
 import builder.BonbonBuilderGuillaume;
+import bonbon.Bonbon;
 
 public class RoiDesBonbons {
 
     private static RoiDesBonbons single_instance = null;
 
-    public static RoiDesBonbons getInstance()
-    {
+    public static RoiDesBonbons getInstance() {
         if (single_instance == null)
             single_instance = new RoiDesBonbons();
 
         return single_instance;
     }
 
-    public Bonbon SouhaitBonbon(String nomBonbon){
-        if(PoolIngredient.getInstance().IsEmpty(10)){
+    public Bonbon SouhaitBonbon(String nomBonbon) {
+        if (PoolIngredient.getInstance().IsEmpty(10)) {
             System.out.println("Il n'y a plus assez d'ingrédients !");
             return null;
         }
