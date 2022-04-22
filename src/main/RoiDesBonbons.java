@@ -1,9 +1,6 @@
 package main;
 
-import builder.BonbonBuilder;
 import builder.BonbonBuilderGuillaume;
-import builder.JujubeBuilder;
-import builder.ReglisseBuilder;
 
 public class RoiDesBonbons {
 

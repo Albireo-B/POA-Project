@@ -1,6 +1,8 @@
 package builder;
 
 import error.NoIngredientException;
+import error.PoolEmptyException;
+import error.PoolIngredientException;
 import main.Bonbon;
 import main.Ingredient;
 import main.PoolIngredient;
@@ -26,14 +28,24 @@ public class BonbonBuilderGuillaume {
         try {
             Class bonbonRecetteClass = Class.forName("recette.Recette"+nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
+            return;
         } catch (Exception e) {
             //e.printStackTrace();
             //Recette parar défaut quand on ne trouve pas la recette du bonbon
-            recetteBonbon = new RecetteParDefaut();
+            System.out.println(e);
+            try{
+                recetteBonbon = new RecetteParDefaut();
+            } catch(PoolIngredientException exception2){
+                exception2.printStackTrace();
+            }
         }
     }
 
     public Bonbon Build(){
+        if(recetteBonbon==null){
+            System.out.print("Recette introuvable !");
+            return null;
+        }
 
         bonbonABuild = new Bonbon(this.nomBonBon);
 

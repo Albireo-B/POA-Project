@@ -1,6 +1,7 @@
 package recette;
 
 import error.NoIngredientException;
+import error.PoolIngredientException;
 import main.PoolIngredient;
 import operation.OperationBrasser;
 import operation.OperationEmballer;
@@ -8,7 +9,7 @@ import operation.OperationPeser;
 
 public class RecetteReglisse  extends Recette {
 
-    public RecetteReglisse(){
+    public RecetteReglisse() throws PoolIngredientException {
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();

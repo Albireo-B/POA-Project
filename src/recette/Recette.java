@@ -1,13 +1,13 @@
 package recette;
 
-import builder.BonbonBuilder;
+import error.NoIngredientException;
+import error.PoolIngredientException;
 import main.Ingredient;
 import operation.Operation;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public abstract class Recette {
 
@@ -18,7 +18,7 @@ public abstract class Recette {
     public ArrayList<Operation> GetOperations(){return operations;};
     public AbstractMap<Ingredient,Integer> GetIngredients(){return ingredients;};
 
-    Recette(){
+    Recette() throws PoolIngredientException {
         ingredients = new HashMap<Ingredient,Integer>();
         operations = new ArrayList<Operation>();
     }

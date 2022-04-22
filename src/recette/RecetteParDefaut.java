@@ -12,20 +12,15 @@ import java.util.Map;
 
 public class RecetteParDefaut  extends Recette {
 
-    public RecetteParDefaut(){
+    public RecetteParDefaut() throws PoolIngredientException{
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
-        try{
-            for(int i = 0; i<3; i++){
-                Map.Entry<Ingredient, Integer> ingredientQuantity = poolIngredient.PrendreIngredientAuHasard(10);
-                ingredients.put(
-                        ingredientQuantity.getKey(),
-                        10);
-            }
-        }
-        catch(PoolIngredientException exception){
-            System.out.println(exception);
+        for(int i = 0; i<3; i++){
+            Map.Entry<Ingredient, Integer> ingredientQuantity = poolIngredient.PrendreIngredientAuHasard(10);
+            ingredients.put(
+                    ingredientQuantity.getKey(),
+                    10);
         }
 
         operations.add(new OperationBrasser());
