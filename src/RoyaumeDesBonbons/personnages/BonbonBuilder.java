@@ -5,7 +5,6 @@ import RoyaumeDesBonbons.bonbon.PoolIngredient;
 import RoyaumeDesBonbons.error.NoIngredientException;
 import RoyaumeDesBonbons.recette.Recette;
 import RoyaumeDesBonbons.recette.RecetteParDefaut;
-import RoyaumeDesBonbons.error.PoolIngredientException;
 import RoyaumeDesBonbons.bonbon.Bonbon;
 import RoyaumeDesBonbons.operation.Operation;
 
@@ -15,7 +14,7 @@ import java.util.Map;
 final class BonbonBuilder {
 
     private Bonbon bonbonABuild;
-    private String nomBonBon;
+    private String nomBonbon;
     private Recette recetteBonbon;
 
     BonbonBuilder(String nomBonbon) {
@@ -23,13 +22,9 @@ final class BonbonBuilder {
         try {
             Class bonbonRecetteClass = Class.forName("RoyaumeDesBonbons.recette.Recette" + nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
-        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException | ClassNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            try {
-                recetteBonbon = new RecetteParDefaut();
-            } catch (PoolIngredientException e2) {
-                e2.printStackTrace();
-            }
+            recetteBonbon = new RecetteParDefaut(10);
         }
     }
 
@@ -39,7 +34,7 @@ final class BonbonBuilder {
             return null;
         }
 
-        bonbonABuild = new Bonbon(this.nomBonBon);
+        bonbonABuild = new Bonbon(this.nomBonbon);
 
         // Verifier que tous les ingredients sont dispos
         for (Map.Entry<Ingredient, Integer> entry : recetteBonbon.getIngredients().entrySet()) {
@@ -59,7 +54,7 @@ final class BonbonBuilder {
             bonbonABuild.AjouterIngredient(ingredient);
         });
 
-        AfficherJournal(this.nomBonBon, recetteBonbon);
+        AfficherJournal(this.nomBonbon, recetteBonbon);
         return bonbonABuild;
     }
 
@@ -69,7 +64,7 @@ final class BonbonBuilder {
     }
 
     private void setNomBonbon(String nomBonbon) {
-        this.nomBonBon = nomBonbon;
+        this.nomBonbon = nomBonbon;
     }
 
 }

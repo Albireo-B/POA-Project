@@ -2,6 +2,8 @@ package RoyaumeDesBonbons.personnages;
 
 import RoyaumeDesBonbons.error.AllergieException;
 import RoyaumeDesBonbons.bonbon.Ingredient;
+import RoyaumeDesBonbons.error.PoolEmptyException;
+import RoyaumeDesBonbons.error.PoolIngredientException;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,7 +25,7 @@ public final class Enfant {
     public void souhaiterPourUnBonBon(String nomBonbon) {
         try {
             mere.passerCommandePourEnfant(nomBonbon, this.allergies);
-        } catch (AllergieException e) {
+        } catch (AllergieException | PoolIngredientException e) {
             e.printStackTrace();
         }
     }

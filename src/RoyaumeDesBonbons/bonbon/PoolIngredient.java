@@ -72,24 +72,39 @@ public final class PoolIngredient {
         return null;
     }
 
-    public Map.Entry<Ingredient, Integer> PrendreIngredientAuHasard(int value) throws PoolIngredientException {
-        ArrayList<Ingredient> ingredientsAvailable = new ArrayList<>();
+    public Map.Entry<Ingredient, Integer> GetIngredientAuHasard(int quantiteMaximaleVoulue) {
+        ArrayList<Ingredient> ingredientsDisponibles = new ArrayList<>();
+
+        //Rechercher les ingrédients ayant la quantité voulue
         ingredients.forEach((key, val) -> {
-            if (val >= value) {
-                ingredientsAvailable.add(key);
+            if(val>=quantiteMaximaleVoulue){
+                ingredientsDisponibles.add(key);
             }
         });
 
-        if (ingredientsAvailable.size() == 0) {
-            throw new PoolEmptyException("Il n'y a plus d'ingrédient disponible");
+        //S'il y en a aucun, alors prendre tous ceux qui ne sont pas vide
+        if(ingredientsDisponibles.size()==0){
+            ingredients.forEach((key, val) -> {
+                if(val>0){
+                    ingredientsDisponibles.add(key);
+                }
+            });
+
+            //S'il n'y a vraiment aucune possibilité, alors nous retournons du sucre à une quantité de 10.
+            //Si le client voudra prendre physiquement cet ingrédient avec PrendreIngredient(),
+            //il ne pourra pas le faire, et il aura une erreur. Donc cela reste sécurisé
+            if(ingredientsDisponibles.size()==0){
+                return Map.entry(GetIngredient("Sucre"), 10);
+            }
+
+            int indexRandomIngredient = (int) (Math.floor(Math.random() * 10)) % ingredientsDisponibles.size();
+            Ingredient ingredientSelectionne = ingredientsDisponibles.get(indexRandomIngredient);
+            return Map.entry(ingredientSelectionne, ingredients.get(ingredientSelectionne));
         }
 
-        int indexRandomIngredient = (int) (Math.floor(Math.random() * 10)) % ingredientsAvailable.size();
-        Ingredient randomIngredient = ingredientsAvailable.get(indexRandomIngredient);
-
-        PrendreIngredient(randomIngredient, value);
-
-        return Map.entry(randomIngredient, value);
+        int indexRandomIngredient = (int) (Math.floor(Math.random() * 10)) % ingredientsDisponibles.size();
+        Ingredient ingredientSelectionne = ingredientsDisponibles.get(indexRandomIngredient);
+        return Map.entry(ingredientSelectionne, quantiteMaximaleVoulue);
     }
 
     public boolean IsEmpty(int deltaQuantity) {
@@ -100,5 +115,10 @@ public final class PoolIngredient {
             }
         });
         return !(ingredientsAvailable.size() > 2);
+    }
+
+    @Override
+    public String toString(){
+        return "PoolIngredient: {\n" + ingredients.toString() + "}\n";
     }
 }

@@ -1,4 +1,8 @@
 import RoyaumeDesBonbons.bonbon.Bonbon;
+import RoyaumeDesBonbons.bonbon.PoolIngredient;
+import RoyaumeDesBonbons.personnages.Enfant;
+
+import java.util.ArrayList;
 
 public class MainTest {
 
@@ -15,6 +19,17 @@ public class MainTest {
             if(result==null){ break; }
         }*/
 
+
+        Enfant enfant1 = new Enfant(new ArrayList<>());//(List.of("Sucre"));
+        /*
+        for(int i = 0; i<100; i++){
+            System.out.println("\n====UN BONBON EST DEMANDE====");
+            enfant1.souhaiterPourUnBonBon("Jujube");
+        }
+        */
+        System.out.println(PoolIngredient.getInstance().toString());
+        enfant1.souhaiterPourUnBonBon("AAAAAAAAAa");
+        System.out.println(PoolIngredient.getInstance().toString());
     }
 
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 
 public final class RecetteJujube extends Recette {
 
-    public RecetteJujube() throws PoolIngredientException {
+    public RecetteJujube() {
         super();
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
