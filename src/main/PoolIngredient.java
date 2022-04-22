@@ -1,6 +1,8 @@
 package main;
 
 import error.NoIngredientException;
+import error.PoolEmptyException;
+import error.PoolIngredientException;
 
 import java.security.KeyPair;
 import java.util.*;
@@ -18,6 +20,7 @@ public class PoolIngredient {
         ingredients.put(new Ingredient("Pomme"), 300);
         ingredients.put(new Ingredient("Poire"), 300);
         ingredients.put(new Ingredient("Banane"), 300);
+        ingredients.put(new Ingredient("Anis"), 300);
         ingredients.put(new Ingredient("Colorant"), 300);
         ingredients.put(new Ingredient("Sucre acidulé"), 300);
     }
@@ -54,5 +57,24 @@ public class PoolIngredient {
             }
         }
         return null;
+    }
+
+    public Map.Entry<Ingredient,Integer> PrendreIngredientAuHasard(int value) throws PoolIngredientException {
+        ArrayList<Ingredient> ingredientsAvailable = new ArrayList<>();
+        ingredients.forEach((key, val)->{
+            if(val>=value){
+                ingredientsAvailable.add(key);
+            }
+        });
+        if(ingredientsAvailable.size()==0){
+            throw new PoolEmptyException("Il n'y a plus d'ingrédient disponible");
+        }
+
+        int indexRandomIngredient = (int)(Math.floor(Math.random()*10)) % ingredientsAvailable.size();
+        Ingredient randomIngredient = ingredientsAvailable.get(indexRandomIngredient);
+
+        PrendreIngredient(randomIngredient, value);
+
+        return Map.entry(randomIngredient,value);
     }
 }

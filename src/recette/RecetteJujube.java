@@ -14,8 +14,29 @@ public class RecetteJujube extends Recette {
         //On choisit les ingrédients présents dans la recette
         PoolIngredient poolIngredient = PoolIngredient.getInstance();
         try{
-            ingredients.put(poolIngredient.PrendreIngredient(poolIngredient.GetIngredient("Sucre"), 25).getKey(),25);
+            ingredients.put(
+                    poolIngredient.PrendreIngredient(
+                            poolIngredient.GetIngredient("Sucre"), 10
+                    ).getKey(),
+                    10);
 
+            ingredients.put(
+                    poolIngredient.PrendreIngredient(
+                            poolIngredient.GetIngredient("Pomme"), 10
+                    ).getKey(),
+                    10);
+
+            ingredients.put(
+                    poolIngredient.PrendreIngredient(
+                            poolIngredient.GetIngredient("Gélatine"), 10
+                    ).getKey(),
+                    10);
+
+            ingredients.put(
+                    poolIngredient.PrendreIngredient(
+                            poolIngredient.GetIngredient("Colorant"), 10
+                    ).getKey(),
+                    10);
         }
         catch(NoIngredientException exception){
             System.out.println(exception);

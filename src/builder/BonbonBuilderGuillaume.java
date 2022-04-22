@@ -7,6 +7,7 @@ import main.PoolIngredient;
 import operation.Operation;
 import recette.Recette;
 import recette.RecetteJujube;
+import recette.RecetteParDefaut;
 import recette.RecetteReglisse;
 
 import java.util.AbstractMap;
@@ -26,9 +27,9 @@ public class BonbonBuilderGuillaume {
             Class bonbonRecetteClass = Class.forName("recette.Recette"+nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             //Recette parar défaut quand on ne trouve pas la recette du bonbon
-            recetteBonbon = new RecetteReglisse();
+            recetteBonbon = new RecetteParDefaut();
         }
     }
 
