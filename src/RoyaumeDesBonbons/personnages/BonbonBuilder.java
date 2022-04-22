@@ -23,7 +23,8 @@ final class BonbonBuilder {
             Class bonbonRecetteClass = Class.forName("RoyaumeDesBonbons.recette.Recette" + nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Bonbon non trouvé, créé un nouveau");
             recetteBonbon = new RecetteParDefaut(10);
         }
     }
