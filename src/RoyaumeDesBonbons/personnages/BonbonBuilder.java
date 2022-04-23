@@ -23,18 +23,12 @@ final class BonbonBuilder {
             Class bonbonRecetteClass = Class.forName("RoyaumeDesBonbons.recette.Recette" + nomBonbon);
             recetteBonbon = (Recette) bonbonRecetteClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Recette introuvable !");
             recetteBonbon = new RecetteParDefaut(10);
         }
     }
 
     Bonbon Build() throws NoIngredientException {
-
-        if (recetteBonbon == null) {
-            System.out.print("Recette introuvable !");
-            return null;
-        }
-
 
         System.out.println("Un bonbon " + this.nomBonbon + " est souhaité !");
 
