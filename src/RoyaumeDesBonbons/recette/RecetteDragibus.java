@@ -9,7 +9,7 @@ import RoyaumeDesBonbons.operation.OperationPeser;
 
 import java.util.ArrayList;
 
-public class RecetteDragibus extends Recette{
+public final class RecetteDragibus extends Recette{
 
     public RecetteDragibus(){
         super();

@@ -9,7 +9,7 @@ import RoyaumeDesBonbons.operation.OperationPeser;
 
 import java.util.ArrayList;
 
-public class RecetteArlequin extends Recette {
+public final class RecetteArlequin extends Recette {
 
 
     public RecetteArlequin() {
