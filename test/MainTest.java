@@ -27,9 +27,7 @@ public class MainTest {
             enfant1.souhaiterPourUnBonBon("Jujube");
         }
         */
-        System.out.println(PoolIngredient.getInstance().toString());
         enfant1.souhaiterPourUnBonBon("AAAAAAAAAa");
-        System.out.println(PoolIngredient.getInstance().toString());
     }
 
 }

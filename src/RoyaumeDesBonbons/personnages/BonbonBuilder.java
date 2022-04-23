@@ -29,10 +29,14 @@ final class BonbonBuilder {
     }
 
     Bonbon Build() throws NoIngredientException {
+
         if (recetteBonbon == null) {
             System.out.print("Recette introuvable !");
             return null;
         }
+
+
+        System.out.println("Un bonbon " + this.nomBonbon + " est souhaité !");
 
         bonbonABuild = new Bonbon(this.nomBonbon);
 
@@ -48,18 +52,19 @@ final class BonbonBuilder {
             PoolIngredient.getInstance().PrendreIngredient(entry.getKey(), entry.getValue());
         }
 
-        recetteBonbon.getOperations().forEach(Operation::AppliquerOperation);
-
         recetteBonbon.getIngredients().forEach((ingredient, integer) -> {
             bonbonABuild.AjouterIngredient(ingredient);
+            System.out.println("Ajouter " + ingredient.GetNom() + " en quantité : " + integer);
         });
 
-        AfficherJournal(this.nomBonbon, recetteBonbon);
+        recetteBonbon.getOperations().forEach(Operation::AppliquerOperation);
+
+
+        AfficherRecette(recetteBonbon);
         return bonbonABuild;
     }
 
-    private void AfficherJournal(String nomBonBon, Recette recette) {
-        System.out.println("Un bonbon " + nomBonBon + " est souhaité !");
+    private void AfficherRecette(Recette recette) {
         System.out.println(recette.toString());
     }
 
